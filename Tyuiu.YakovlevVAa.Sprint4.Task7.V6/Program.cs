@@ -1,5 +1,5 @@
-﻿using Tyuiu.YakovlevVAa.Sprint4.Task6.V4.Lib;
-namespace Tyuiu.YakovlevVAa.Sprint4.Task6.V4
+﻿using Tyuiu.YakovlevVAa.Sprint4.Task7.V6.Lib;
+namespace Tyuiu.YakovlevVAa.Sprint4.Task7.V6
 {
     internal class Program
     {
@@ -10,32 +10,39 @@ namespace Tyuiu.YakovlevVAa.Sprint4.Task6.V4
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #4                                                               *");
             Console.WriteLine("* Тема: Оператор цикла for                                                *");
-            Console.WriteLine("* Задание #6                                                              *");
-            Console.WriteLine("* Вариант #4                                                              *");
+            Console.WriteLine("* Задание #7                                                              *");
+            Console.WriteLine("* Вариант #6                                                              *");
             Console.WriteLine("* Выполнил: Яковлев Виктор Александрович | ИИПб-24-2                      *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                *");
-            Console.WriteLine("* Дан строковый массив данных [Москва, Санкт Петербург,                   *");
-            Console.WriteLine("* Новосибирск, Екатеринбург, Нижний Новгород, Казахстан,                  *");
+            Console.WriteLine("* Дана строка из одноразрядных цифр 458963214789. Преобразуйте ее в       *");
+            Console.WriteLine("* матрицу 3 на 4 и подсчитайте сумму нечетных чисел.                      *");
             Console.WriteLine("* Самара], используя класс Array, выведите элементы массива,              *");
             Console.WriteLine("* которых меньше 7 символов.                                              *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
-            var city = new string[] { "Москва", "Санкт Петербург", "Новосибирск", "Екатеринбург", "Нижний Новгород", "Казахстан", "Самара" };
-            Console.WriteLine("Исходный массив: ");
-            for (int i = 0; i <= city.Length - 1; i++)
+            int rows = 3;
+            int columns = 4;
+            string str = "458963214789";
+            int[,] matrix = new int[rows, columns];
+            int index = 0;
+            Console.WriteLine("\nМассив:");
+            for (int i = 0; i < rows; i++)
             {
-                Console.WriteLine(city[i]);
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.WriteLine($"{str[index]} \t");
+                    index++;
+                }
+                Console.WriteLine();
             }
+            Console.WriteLine();
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
-            var res = ds.Calculate(city);
-            for (int i = 0; i < res.Length; i++)
-            {
-                Console.WriteLine(res[i]);
-            }
+            int res = ds.Calculate(rows, columns, str);
+            Console.WriteLine("Сумма нечётных чисел = " + res);
         }
     }
 }
